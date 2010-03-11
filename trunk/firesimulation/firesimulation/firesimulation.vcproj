@@ -200,7 +200,27 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Case.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Element.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\firesimulation.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Foret.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Mobile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Robot.cpp"
 				>
 			</File>
 			<File
@@ -230,6 +250,18 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\Case.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Element.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Foret.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Form1.h"
 				FileType="3"
 				>
@@ -240,7 +272,15 @@
 				</File>
 			</File>
 			<File
+				RelativePath=".\Mobile.h"
+				>
+			</File>
+			<File
 				RelativePath=".\resource.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Robot.h"
 				>
 			</File>
 			<File
