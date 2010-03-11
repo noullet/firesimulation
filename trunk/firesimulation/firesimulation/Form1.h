@@ -10,24 +10,21 @@ namespace firesimulation {
 	using namespace System::Data;
 	using namespace System::Drawing;
 
-	/// <summary>
-	/// Description résumée de Form1
-	///
-	/// AVERTISSEMENT : si vous modifiez le nom de cette classe, vous devrez modifier la
-	///          propriété 'Nom du fichier de ressources' de l'outil de compilation de ressource managée
-	///          pour tous les fichiers .resx dont dépend cette classe. Dans le cas contraire,
-	///          les concepteurs ne pourront pas interagir correctement avec les ressources
-	///          localisées associées à ce formulaire.
-	/// </summary>
+
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
+
+	private:
+		// Variable concepteur
+		System::ComponentModel::Container ^components;
+		// Grille d'images
+
+
 	public:
 		Form1(void)
 		{
 			InitializeComponent();
-			//
-			//TODO : ajoutez ici le code du constructeur
-			//
+
 		}
 
 	protected:
@@ -42,12 +39,6 @@ namespace firesimulation {
 			}
 		}
 
-	private:
-		/// <summary>
-		/// Variable nécessaire au concepteur.
-		/// </summary>
-		System::ComponentModel::Container ^components;
-
 #pragma region Windows Form Designer generated code
 		/// <summary>
 		/// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
@@ -55,11 +46,17 @@ namespace firesimulation {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->components = gcnew System::ComponentModel::Container();
-			this->Size = System::Drawing::Size(300,300);
-			this->Text = L"Form1";
-			this->Padding = System::Windows::Forms::Padding(0);
+			this->SuspendLayout();
+			// 
+			// Form1
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->ClientSize = System::Drawing::Size(484, 462);
+			this->Name = L"Form1";
+			this->Text = L"Forest fire simulation";
+			this->ResumeLayout(false);
+
 		}
 #pragma endregion
 	};
