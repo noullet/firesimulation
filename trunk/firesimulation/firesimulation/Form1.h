@@ -1,5 +1,5 @@
 #pragma once
-
+#include "CaseGui.h"
 
 namespace firesimulation {
 
@@ -18,7 +18,7 @@ namespace firesimulation {
 		// Variable concepteur
 		System::ComponentModel::Container ^components;
 		// Grille d'images
-
+		CaseGui[][] matrice;
 
 	public:
 		Form1(void)

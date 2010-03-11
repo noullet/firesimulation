@@ -271,6 +271,14 @@
 					/>
 				</FileConfiguration>
 			</File>
+			<Filter
+				Name="GUI"
+				>
+				<File
+					RelativePath=".\CaseGui.cpp"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Fichiers d&apos;en-tête"
@@ -343,6 +351,14 @@
 				RelativePath=".\stdafx.h"
 				>
 			</File>
+			<Filter
+				Name="GUI"
+				>
+				<File
+					RelativePath=".\CaseGui.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Fichiers de ressources"
