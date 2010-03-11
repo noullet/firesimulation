@@ -1,8 +1,8 @@
 #pragma once
-#include "element.h"
+#include "agent.h"
 
 ref class Robot :
-public Element
+public Agent
 {
 public:
 	Robot(void);

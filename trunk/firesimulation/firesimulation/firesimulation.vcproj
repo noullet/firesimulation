@@ -196,7 +196,15 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\Agent.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\AssemblyInfo.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Capteur.cpp"
 				>
 			</File>
 			<File
@@ -204,7 +212,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Element.cpp"
+				RelativePath=".\Drone.cpp"
 				>
 			</File>
 			<File
@@ -220,7 +228,27 @@
 				>
 			</File>
 			<File
+				RelativePath=".\PDA.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PDAPompier.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\PDAVictime.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Robot.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RobotMobile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RobotTerrestre.cpp"
 				>
 			</File>
 			<File
@@ -250,11 +278,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\Agent.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Capteur.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Case.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Element.h"
+				RelativePath=".\Drone.h"
 				>
 			</File>
 			<File
@@ -276,11 +312,31 @@
 				>
 			</File>
 			<File
+				RelativePath=".\PDA.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PDAPompier.h"
+				>
+			</File>
+			<File
+				RelativePath=".\PDAVictime.h"
+				>
+			</File>
+			<File
 				RelativePath=".\resource.h"
 				>
 			</File>
 			<File
 				RelativePath=".\Robot.h"
+				>
+			</File>
+			<File
+				RelativePath=".\RobotMobile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\RobotTerrestre.h"
 				>
 			</File>
 			<File
