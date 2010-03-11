@@ -2,7 +2,7 @@
 #include "robot.h"
 #include "mobile.h"
 
-ref class RobotMobile :
+class RobotMobile :
 public Robot, public Mobile
 {
 public:

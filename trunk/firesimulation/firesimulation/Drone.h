@@ -1,7 +1,7 @@
 #pragma once
 #include "robotmobile.h"
 
-ref class Drone :
+class Drone :
 public RobotMobile
 {
 public:

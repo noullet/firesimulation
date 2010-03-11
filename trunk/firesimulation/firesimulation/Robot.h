@@ -1,7 +1,7 @@
 #pragma once
 #include "agent.h"
 
-ref class Robot :
+class Robot :
 public Agent
 {
 public:

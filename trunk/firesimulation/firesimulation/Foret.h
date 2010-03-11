@@ -1,6 +1,6 @@
 #pragma once
 
-ref class Foret
+class Foret
 {
 public:
 	Foret(void);

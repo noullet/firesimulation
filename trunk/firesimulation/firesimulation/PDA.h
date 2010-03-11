@@ -1,8 +1,8 @@
 #pragma once
-#include "agent.h"
-#include "mobile.h"
+#include "Agent.h"
+#include "Mobile.h"
 
-ref class PDA :
+class PDA :
 public Agent, public Mobile
 {
 public:

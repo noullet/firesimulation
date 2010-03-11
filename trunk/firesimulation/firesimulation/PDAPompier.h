@@ -1,7 +1,7 @@
 #pragma once
 #include "pda.h"
 
-ref class PDAPompier :
+class PDAPompier :
 public PDA
 {
 public:

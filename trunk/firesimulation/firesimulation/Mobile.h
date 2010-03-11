@@ -1,6 +1,6 @@
 #pragma once
 
-ref class Mobile
+class Mobile
 {
 public:
 	Mobile(void);

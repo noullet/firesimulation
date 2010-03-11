@@ -1,7 +1,13 @@
 #pragma once
 
-ref class Case
+class Agent
+{};
+
+class Case
 {
+private :
+	bool estFeu;
+	Agent agent;
 public:
 	Case(void);
 };

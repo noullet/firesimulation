@@ -1,7 +1,7 @@
 #pragma once
 #include "pda.h"
 
-ref class PDAVictime :
+class PDAVictime :
 public PDA
 {
 public:

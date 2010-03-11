@@ -1,7 +1,7 @@
 #pragma once
 #include "robot.h"
 
-ref class Capteur :
+class Capteur :
 public Robot
 {
 public:
