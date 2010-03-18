@@ -11,7 +11,7 @@
 #include "Mobile.h"
 #include "Donnee.h"
 
-class PDA : public Agent, public Mobile, public Agent, public Agent
+class PDA : public Agent, public Mobile
 {
 public:
 	void decouvrirEnvironnement();
@@ -19,15 +19,6 @@ public:
 	void recevoirDonnee(Donnee donnee);
 	void seDeplacer(string direction);
 	string getDirection();
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
 };
 
 #endif  //_PDA_H

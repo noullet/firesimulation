@@ -7,6 +7,12 @@
 #include "Case.h"
 #include "Donnee.h"
 #include "Foret.h"
+#include "Agent.h"
+#include "PDAVictime.h"
+#include "PDAPompier.h"
+#include "RobotMobile.h"
+#include "Drone.h"
+#include "RobotTerrestre.h"
 #include <typeinfo>
 
 void Case::diffuserFeu()
