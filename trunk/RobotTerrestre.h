@@ -1,9 +1,8 @@
-//////////////////////////////////
-// Fire Simulation  //
-// Nicolas Noullet  //
-// Bertrand Pagès //
-//////////////////////////////////
-
+/////////////////////
+// Fire Simulation //
+// Nicolas Noullet //
+// Bertrand Pagès  //
+/////////////////////
 
 #if !defined(_ROBOTTERRESTRE_H)
 #define _ROBOTTERRESTRE_H

@@ -1,9 +1,8 @@
-//////////////////////////////////
-// Fire Simulation  //
-// Nicolas Noullet  //
-// Bertrand Pagès //
-//////////////////////////////////
-
+/////////////////////
+// Fire Simulation //
+// Nicolas Noullet //
+// Bertrand Pagès  //
+/////////////////////
 
 #if !defined(_PDAVICTIME_H)
 #define _PDAVICTIME_H
@@ -13,9 +12,10 @@
 
 class PDAVictime : public PDA
 {
-public:
+protected:
 	bool blesse;
 	bool priseEnCharge;
+public:
 	bool estBlesse();
 	bool estPriseEnCharge();
 	void setPriseEnCharge(bool b);

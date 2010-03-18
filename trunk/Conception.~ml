@@ -1210,13 +1210,11 @@
 <XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="MU/fDWes1U+JRN6ks2Y33gAA">
 <XPD:ATTR name="Name" type="string">blesse</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
 <XPD:REF name="Owner">s+HfbiwepUGYmhJRmGWERgAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="1MkvlrweMkiYDecpQpMbmwAA">
 <XPD:ATTR name="Name" type="string">priseEnCharge</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
 <XPD:REF name="Owner">s+HfbiwepUGYmhJRmGWERgAA</XPD:REF>
 </XPD:OBJ>
@@ -1396,19 +1394,16 @@
 <XPD:ATTR name="#Attributes" type="integer">3</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="jYSwfXP8akGvHb2cxFXweAAA">
 <XPD:ATTR name="Name" type="string">feu</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">bool</XPD:ATTR>
 <XPD:REF name="Owner">0VwUJ3S2+Ue9aV1o5LWOowAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="srYLQMVDW0uGqq6iRO3IXQAA">
 <XPD:ATTR name="Name" type="string">x</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="Owner">0VwUJ3S2+Ue9aV1o5LWOowAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[2]" type="UMLAttribute" guid="TFclzcy+yU6APjaXYD/xdQAA">
 <XPD:ATTR name="Name" type="string">y</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="Owner">0VwUJ3S2+Ue9aV1o5LWOowAA</XPD:REF>
 </XPD:OBJ>
@@ -1493,13 +1488,11 @@
 <XPD:ATTR name="#Attributes" type="integer">2</XPD:ATTR>
 <XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="o/t7Wr79KUKtmYwRgyOb2QAA">
 <XPD:ATTR name="Name" type="string">nom</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">string</XPD:ATTR>
 <XPD:REF name="Owner">EP8Tg3h1/EyutsrGzu1m0AAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="Attributes[1]" type="UMLAttribute" guid="kQek58ly9EqoJ0VxGWHfYQAA">
 <XPD:ATTR name="Name" type="string">vision</XPD:ATTR>
-<XPD:ATTR name="Visibility" type="UMLVisibilityKind">vkProtected</XPD:ATTR>
 <XPD:ATTR name="TypeExpression" type="string">int</XPD:ATTR>
 <XPD:REF name="Owner">EP8Tg3h1/EyutsrGzu1m0AAA</XPD:REF>
 </XPD:OBJ>

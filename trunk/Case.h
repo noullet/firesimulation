@@ -1,9 +1,8 @@
-//////////////////////////////////
-// Fire Simulation  //
-// Nicolas Noullet  //
-// Bertrand Pagès //
-//////////////////////////////////
-
+/////////////////////
+// Fire Simulation //
+// Nicolas Noullet //
+// Bertrand Pagès  //
+/////////////////////
 
 #if !defined(_CASE_H)
 #define _CASE_H
@@ -13,10 +12,11 @@
 
 class Case
 {
-public:
+protected:
 	bool feu;
 	int x;
 	int y;
+public:
 	void diffuserFeu();
 	bool estFeu();
 	void setFeu(bool estFeu);

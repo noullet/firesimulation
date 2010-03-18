@@ -1,9 +1,8 @@
-//////////////////////////////////
-// Fire Simulation  //
-// Nicolas Noullet  //
-// Bertrand Pagès //
-//////////////////////////////////
-
+/////////////////////
+// Fire Simulation //
+// Nicolas Noullet //
+// Bertrand Pagès  //
+/////////////////////
 
 #if !defined(_ROBOTMOBILE_H)
 #define _ROBOTMOBILE_H
