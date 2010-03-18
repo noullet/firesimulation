@@ -40,7 +40,6 @@
 		<Unit filename="Drone.h" />
 		<Unit filename="Foret.cpp" />
 		<Unit filename="Foret.h" />
-		<Unit filename="Matrix.h" />
 		<Unit filename="Mobile.h" />
 		<Unit filename="PDA.cpp" />
 		<Unit filename="PDA.h" />
