@@ -7,7 +7,6 @@
 #if !defined(_FORET_H)
 #define _FORET_H
 
-#include "Matrix.h"
 class Case;
 
 class Foret

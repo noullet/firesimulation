@@ -6,6 +6,7 @@
 
 #include "Foret.h"
 #include "Case.h"
+#include <iostream>
 
 Foret::Foret()
 {
