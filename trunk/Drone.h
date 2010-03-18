@@ -13,13 +13,7 @@
 class Drone : public RobotMobile
 {
 public:
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	string getDirection();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
+    Drone(string name) : RobotMobile(name) {};
 };
 
 #endif  //_DRONE_H

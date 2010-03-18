@@ -11,19 +11,12 @@
 #include "Mobile.h"
 #include "Donnee.h"
 
-class RobotMobile : public Robot, public Robot, public Mobile
+class RobotMobile : public Robot, public Mobile
 {
 public:
+    RobotMobile(string name) : Robot(name) {};
 	void seDeplacer(string direction);
 	string getDirection();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void seDeplacer(string direction);
-	string getDirection();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
 };
 
 #endif  //_ROBOTMOBILE_H
