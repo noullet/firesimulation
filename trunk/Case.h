@@ -14,12 +14,12 @@ class Case
 {
 protected:
     Foret foret;
-    Agent agent;
+    Agent *agent;
 	bool feu;
 	int x;
 	int y;
 public:
-    Case(int aX, int aY, Foret aForet): x(aX), y(aY), foret(aForet) {};
+    Case(int aX, int aY, Foret aForet): x(aX), y(aY), foret(aForet), agent(NULL) {};
 	void diffuserFeu();
 	bool estFeu();
 	void setFeu(bool estFeu);
@@ -27,8 +27,9 @@ public:
 	int getY();
 	Donnee decouvrir();
 	Foret getForet();
-	Agent getAgent();
-	void setAgent(Agent aAgent);
+	Agent* getAgent();
+	void setAgent(Agent *aAgent);
+	char getEtat();
 };
 
 #endif  //_CASE_H

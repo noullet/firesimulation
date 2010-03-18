@@ -7,6 +7,7 @@
 #include "Case.h"
 #include "Donnee.h"
 #include "Foret.h"
+#include <typeinfo>
 
 void Case::diffuserFeu()
 {
@@ -35,7 +36,23 @@ int Case::getY()
 
 Donnee Case::decouvrir()
 {
-
+    string type;
+    if(this->estFeu())
+    {
+        type = "feu";
+    }
+    else if(typeid(*(this->agent)) == typeid(PDAVictime))
+    {
+        if(this->agent->estBlesse())
+        {
+            type = "blesse";
+        }
+    }
+    else
+    {
+        type = "neant";
+    }
+    Donne d = Donne(type, this->x, this->y);
 }
 
 Foret Case::getForet()
@@ -43,13 +60,28 @@ Foret Case::getForet()
     return this->foret;
 }
 
-Agent Case::getAgent()
+Agent* Case::getAgent()
 {
     return this->agent;
 }
 
-void Case::setAgent(Agent aAgent)
+void Case::setAgent(Agent *aAgent)
 {
     this->agent = aAgent;
+}
+
+char Case::getEtat()
+{
+    if(this->estFeu)
+    {
+        return 'F';
+    }
+    else if(this->agent != NULL)
+    {
+    }
+    else
+    {
+        return '*';
+    }
 }
 
