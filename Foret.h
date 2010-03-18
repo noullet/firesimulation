@@ -18,6 +18,7 @@ private:
     Matrix<Case*> matrice;
 public:
     Foret();
+    ~Foret();
     void afficher();
 	Case getCase(int x, int y);
 };
