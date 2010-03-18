@@ -32,7 +32,31 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Agent.h" />
+		<Unit filename="Capteur.cpp" />
+		<Unit filename="Capteur.h" />
+		<Unit filename="Case.cpp" />
+		<Unit filename="Case.h" />
+		<Unit filename="Donnee.h" />
+		<Unit filename="Drone.cpp" />
+		<Unit filename="Drone.h" />
+		<Unit filename="Foret.cpp" />
+		<Unit filename="Foret.h" />
 		<Unit filename="Matrix.h" />
+		<Unit filename="Mobile.cpp" />
+		<Unit filename="Mobile.h" />
+		<Unit filename="PDA.cpp" />
+		<Unit filename="PDA.h" />
+		<Unit filename="PDAPompier.cpp" />
+		<Unit filename="PDAPompier.h" />
+		<Unit filename="PDAVictime.cpp" />
+		<Unit filename="PDAVictime.h" />
+		<Unit filename="Robot.cpp" />
+		<Unit filename="Robot.h" />
+		<Unit filename="RobotMobile.cpp" />
+		<Unit filename="RobotMobile.h" />
+		<Unit filename="RobotTerrestre.cpp" />
+		<Unit filename="RobotTerrestre.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
