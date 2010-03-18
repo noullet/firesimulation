@@ -15,7 +15,7 @@ class Case
 {
 protected:
     Foret foret;
-    Agent *agent;
+    Agent* agent;
 	bool feu;
 	int x;
 	int y;
