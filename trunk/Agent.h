@@ -14,6 +14,7 @@ class Agent
 protected:
 	string nom;
 	static const int vision = 2;
+	Case *maCase;
 public:
     Agent(string nom) : nom(nom) {};
 	virtual void decouvrirEnvironnement() = 0;
