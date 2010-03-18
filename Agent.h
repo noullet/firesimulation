@@ -8,6 +8,7 @@
 #define _AGENT_H
 
 #include "Donnee.h"
+class Case;
 
 class Agent
 {
