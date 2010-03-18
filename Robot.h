@@ -16,9 +16,6 @@ public:
 	void decouvrirEnvironnement();
 	void envoyerDonnee(Donnee donnee);
 	void recevoirDonnee(Donnee donnee);
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
 };
 
 #endif  //_ROBOT_H
