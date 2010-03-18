@@ -13,13 +13,7 @@
 class RobotTerrestre : public RobotMobile
 {
 public:
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	string getDirection();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
+    RobotTerrestre(string name) : RobotMobile(name);
 };
 
 #endif  //_ROBOTTERRESTRE_H

@@ -13,8 +13,7 @@
 class Capteur : public Robot
 {
 public:
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
+    Capteur(string name) : Robot(name) {};
 };
 
 #endif  //_CAPTEUR_H
