@@ -7,6 +7,8 @@
 #if !defined(_DONNEE_H)
 #define _DONNEE_H
 
+#include <string>
+using namespace std;
 
 class Donnee
 {

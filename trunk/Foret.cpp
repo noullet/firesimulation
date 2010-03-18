@@ -6,9 +6,14 @@
 
 #include "Foret.h"
 #include "Case.h"
+#include "Matrix.h"
 
-Case Foret::getCase(int x, int y)
+Foret::Foret()
 {
 
+}
+Case Foret::getCase(int x, int y)
+{
+    return this->matrice[x][y];
 }
 
