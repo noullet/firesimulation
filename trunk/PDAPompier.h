@@ -18,17 +18,7 @@ public:
 	void decouvrirEnvironnement();
 	void envoyerDonnee(Donnee donnee);
 	void recevoirDonnee(Donnee donnee);
-	void seDeplacer(string direction);
-	string getDirection();
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
+
 };
 
 #endif  //_PDAPOMPIER_H
