@@ -13,7 +13,7 @@
 class RobotTerrestre : public RobotMobile
 {
 public:
-    RobotTerrestre(string name) : RobotMobile(name);
+    RobotTerrestre(string name) : RobotMobile(name){};
 };
 
 #endif  //_ROBOTTERRESTRE_H

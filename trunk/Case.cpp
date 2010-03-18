@@ -13,6 +13,7 @@
 #include "RobotMobile.h"
 #include "Drone.h"
 #include "RobotTerrestre.h"
+#include "Capteur.h"
 #include <typeinfo>
 
 void Case::diffuserFeu()
@@ -49,7 +50,7 @@ Donnee Case::decouvrir()
     }
     else if(typeid(*(this->agent)) == typeid(PDAVictime))
     {
-        if(this->agent->estBlesse())
+        if(((PDAVictime*)(this->agent))->estBlesse())
         {
             type = "blesse";
         }
@@ -58,7 +59,7 @@ Donnee Case::decouvrir()
     {
         type = "neant";
     }
-    Donne d = Donne(type, this->x, this->y);
+    Donnee d(type, this->x, this->y);
 }
 
 Foret Case::getForet()
@@ -78,7 +79,7 @@ void Case::setAgent(Agent *aAgent)
 
 char Case::getEtat()
 {
-    if(this->estFeu)
+    if(this->estFeu())
     {
         return 'F';
     }
@@ -102,7 +103,7 @@ char Case::getEtat()
         }
         else if(typeid(*(this->agent)) == typeid(PDAVictime))
         {
-                if(this->agent->estBlesse())
+                if(((PDAVictime*)(this->agent))->estBlesse())
                 { return 'B'; }
                 else
                 { return 'V'; }
