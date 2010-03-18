@@ -20,7 +20,7 @@ protected:
 	int x;
 	int y;
 public:
-    Case(int aX, int aY, Foret& aForet): x(aX), y(aY), foret(aForet), agent(NULL) {};
+    Case(int aX, int aY, Foret& aForet): x(aX), y(aY), foret(aForet), agent(NULL), feu(false) {};
 	void diffuserFeu();
 	bool estFeu();
 	void setFeu(bool estFeu);

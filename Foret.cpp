@@ -9,27 +9,28 @@
 
 Foret::Foret()
 {
-    this->matrice = Matrix<Case*>(this->NB_LIGNES,this->NB_COLONNES);
-    for(int i=0 ; i<this->NB_LIGNES ; i++)
+    this->matrice = new Case**[NB_LIGNES];
+    for(int i=0 ; i<NB_LIGNES ; i++)
     {
-        for(int j=0 ; j<this->NB_COLONNES ; j++)
+        this->matrice[i] = new Case*[NB_COLONNES];
+        for(int j=0 ; j<NB_COLONNES ; j++)
         {
-                this->matrice[i][j] = new Case(i,j,*this);
+            this->matrice[i][j] = new Case(i,j,*this);
         }
-        cout << endl;
+
     }
 }
 Case Foret::getCase(int x, int y)
 {
-    return *(this->matrice[x][y]);
+    return *this->matrice[x][y];
 }
 void Foret::afficher()
 {
-    for(int i=0 ; i<this->NB_LIGNES ; i++)
+    for(int i=0 ; i<NB_LIGNES ; i++)
     {
-        for(int j=0 ; j<this->NB_COLONNES ; j++)
+        for(int j=0 ; j<NB_COLONNES ; j++)
         {
-                cout << this->matrice[i][j]->getEtat();
+                cout << getCase(i,j).getEtat() << " ";
         }
         cout << endl;
     }
@@ -37,13 +38,6 @@ void Foret::afficher()
 
 Foret::~Foret()
 {
-    for(int i=0 ; i<this->NB_LIGNES ; i++)
-    {
-        for(int j=0 ; j<this->NB_COLONNES ; j++)
-        {
-                delete this->matrice[i][j];
-        }
-        cout << endl;
-    }
+
 }
 
