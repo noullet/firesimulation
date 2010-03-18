@@ -1,9 +1,8 @@
-//////////////////////////////////
-// Fire Simulation  //
-// Nicolas Noullet  //
-// Bertrand Pagès //
-//////////////////////////////////
-
+/////////////////////
+// Fire Simulation //
+// Nicolas Noullet //
+// Bertrand Pagès  //
+/////////////////////
 
 #if !defined(_AGENT_H)
 #define _AGENT_H
@@ -12,9 +11,10 @@
 
 class Agent
 {
-public:
+protected:
 	string nom;
 	int vision;
+public:
 	virtual void decouvrirEnvironnement() = 0;
 	virtual void envoyerDonnee(Donnee donnee) = 0;
 	virtual void recevoirDonnee(Donnee donnee) = 0;
