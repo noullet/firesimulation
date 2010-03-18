@@ -9,6 +9,7 @@
 
 #include "Donnee.h"
 #include "Foret.h"
+#include "Agent.h"
 
 class Case
 {
