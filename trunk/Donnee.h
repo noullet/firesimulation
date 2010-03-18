@@ -16,7 +16,7 @@ public:
 	string type;
 	int x;
 	int y;
-	Donnee(string aType, aX, aY): type(aType), x(aX), y(aY);
+	Donnee(string aType, int aX, int aY): type(aType), x(aX), y(aY){};
 };
 
 #endif  //_DONNEE_H

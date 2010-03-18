@@ -78,6 +78,29 @@ char Case::getEtat()
     }
     else if(this->agent != NULL)
     {
+        if(typeid(*(this->agent))==typeid(Drone))
+        {
+            return 'D';
+        }
+        else if(typeid(*(this->agent)) == typeid(RobotTerrestre))
+        {
+            return 'R';
+        }
+        else if(typeid(*(this->agent)) == typeid(Capteur))
+        {
+            return 'C';
+        }
+        else if(typeid(*(this->agent)) == typeid(PDAPompier))
+        {
+            return 'P';
+        }
+        else if(typeid(*(this->agent)) == typeid(PDAVictime))
+        {
+                if(this->agent->estBlesse())
+                { return 'B'; }
+                else
+                { return 'V'; }
+        }
     }
     else
     {
