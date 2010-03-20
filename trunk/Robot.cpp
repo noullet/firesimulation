@@ -12,7 +12,7 @@
 #include <iostream>
 using namespace std;
 
-#define RAYON_VISION 3
+#define RAYON_VISION 1
 #define RAYON_WIFI 3
 
 void Robot::decouvrirEnvironnement()
@@ -22,9 +22,9 @@ void Robot::decouvrirEnvironnement()
     int y = (*maCase).getY();
     // Champ de vision réel
     int xMin = x - RAYON_VISION;
-    int xMax = x + RAYON_VISION;
+    int xMax = x + RAYON_VISION + 1;
     int yMin = y - RAYON_VISION;
-    int yMax = y + RAYON_VISION;
+    int yMax = y + RAYON_VISION + 1;
     if(xMin < 0)
         xMin = 0;
     if(xMax > f.NB_LIGNES)
@@ -39,7 +39,7 @@ void Robot::decouvrirEnvironnement()
         for(int j=yMin ; j<yMax ; j++)
         {
             // On ne se découvre pas
-            if(i != x && j != y)
+            if(!(i == x & j==y))
             {
                 Donnee * d = f.getCase(i,j).decouvrir();
                 if((*d).type != "neant")
@@ -58,9 +58,9 @@ void Robot::envoyerDonnee(Donnee& donnee)
     int y = (*maCase).getY();
     // Champ de vision réel
     int xMin = x - RAYON_WIFI;
-    int xMax = x + RAYON_WIFI;
+    int xMax = x + RAYON_WIFI + 1;
     int yMin = y - RAYON_WIFI;
-    int yMax = y + RAYON_WIFI;
+    int yMax = y + RAYON_WIFI + 1;
     if(xMin < 0)
         xMin = 0;
     if(xMax > f.NB_LIGNES)
@@ -75,12 +75,12 @@ void Robot::envoyerDonnee(Donnee& donnee)
         for(int j=yMin ; j<yMax ; j++)
         {
             // On ne s'envoie pas la donnee
-            if(i != x && j != y)
+            if(!(i == x & j==y))
             {
                 Agent* agent = f.getCase(i,j).getAgent();
                 if(agent != NULL)
                 {
-                    cout << "Robot " << nom << " envoit" << endl;
+                    cout << "Robot " << nom << " envoie ";
                     donnee.afficher();
                     (*agent).recevoirDonnee(donnee);
                 }
@@ -91,7 +91,7 @@ void Robot::envoyerDonnee(Donnee& donnee)
 
 void Robot::recevoirDonnee(Donnee& donnee)
 {
-    cout << "Robot " << nom << " recoit" << endl;
+    cout << "Robot " << nom << " recoit ";
     donnee.afficher();
 }
 

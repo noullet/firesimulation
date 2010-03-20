@@ -26,7 +26,7 @@ int main()
     Foret f;
     f.getCase(0,0).allumerFeu();
     agents[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
-    agents[1] = new Drone("cp1",&f.getCase(4,4));
+    agents[1] = new Capteur("cp1",&f.getCase(4,4));
     f.getCase(2,2).setAgent(agents[0]);
     f.getCase(4,4).setAgent(agents[1]);
     // Debut de la simulation
@@ -65,16 +65,11 @@ void continuer(Foret &f)
     for(int i=0 ; i<NBAGENTS ; i++)
     {
         Agent* agent = agents[i];
-        (*agent).decouvrirEnvironnement();
-        if( typeid(RobotMobile).before(typeid(*agent)))
+        if( typeid(RobotTerrestre) == typeid(*agent) || typeid(*agent) == typeid(Drone))
         {
             RobotMobile* m = (RobotMobile*)(agent);
             (*m).seDeplacer((*m).getDirection());
         }
-        if( typeid(PDA).before(typeid(*agent)))
-        {
-            PDA* m = (PDA*)(agent);
-            (*m).seDeplacer((*m).getDirection());
-        }
+        (*agent).decouvrirEnvironnement();
     }
 }
