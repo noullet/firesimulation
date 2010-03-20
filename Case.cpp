@@ -18,17 +18,43 @@
 
 void Case::diffuserFeu()
 {
-
+    if(y+1 < foret.NB_COLONNES)
+    {
+            foret.getCase(x,y+1).allumerFeu();
+    }
+    if(y-1 >= 0)
+    {
+            foret.getCase(x,y-1).allumerFeu();
+    }
+    if(x+1 < foret.NB_COLONNES)
+    {
+            foret.getCase(x+1,y).allumerFeu();
+    }
+    if(x-1 >= 0)
+    {
+            foret.getCase(x-1,y).allumerFeu();
+    }
 }
 
-bool Case::estFeu()
+int Case::getFeu()
 {
-    return (this->feu);
+    return(this->feu);
 }
 
-void Case::setFeu(bool estFeu)
+void Case::allumerFeu()
 {
-    this->feu = estFeu;
+    if(feu == 0)
+        feu = 1;
+}
+
+void Case::eteindreFeu()
+{
+    this->feu = 0;
+}
+
+void Case::bruler()
+{
+    this->feu ++;
 }
 
 int Case::getX()
@@ -44,7 +70,7 @@ int Case::getY()
 Donnee Case::decouvrir()
 {
     string type;
-    if(this->estFeu())
+    if(this->getFeu() > 0)
     {
         type = "feu";
     }
@@ -79,7 +105,7 @@ void Case::setAgent(Agent *aAgent)
 
 char Case::getEtat()
 {
-    if(this->estFeu())
+    if(this->getFeu() > 0)
     {
         return 'F';
     }

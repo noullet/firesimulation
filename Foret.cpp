@@ -21,7 +21,7 @@ Foret::Foret()
 
     }
 }
-Case Foret::getCase(int x, int y)
+Case& Foret::getCase(int x, int y)
 {
     return *this->matrice[x][y];
 }
