@@ -12,21 +12,24 @@
 
 void RobotMobile::seDeplacer(string direction)
 {
-    int nX = (*maCase).getX();
-    int nY = (*maCase).getY();
-    Foret& foret = (*maCase).getForet();
-    (*maCase).setAgent(NULL);
-    if(direction == "nord")
-        nX--;
-    if(direction == "sud")
-        nX++;
-    if(direction == "est")
-        nY--;
-    if(direction == "ouest")
-        nY++;
-    Case& nCase = (foret).getCase(nX,nY);
-    nCase.setAgent(this);
-    maCase = &nCase;
+    if(direction != "rester")
+    {
+        int nX = (*maCase).getX();
+        int nY = (*maCase).getY();
+        Foret& foret = (*maCase).getForet();
+        (*maCase).setAgent(NULL);
+        if(direction == "nord")
+            nX--;
+        if(direction == "sud")
+            nX++;
+        if(direction == "est")
+            nY--;
+        if(direction == "ouest")
+            nY++;
+        Case& nCase = (foret).getCase(nX,nY);
+        nCase.setAgent(this);
+        maCase = &nCase;
+    }
 }
 
 string RobotMobile::getDirection()
@@ -43,7 +46,7 @@ string RobotMobile::getDirection()
     && !f.verifierDirection(x,y,"est")
     && !f.verifierDirection(x,y,"ouest")
     && !f.verifierDirection(x,y,"nord"))
-        return "";
+        return "rester";
 
     // Direction aléatoire
     while(!directionOk)
