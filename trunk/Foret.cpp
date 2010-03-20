@@ -7,6 +7,7 @@
 #include "Foret.h"
 #include "Case.h"
 #include <iostream>
+using namespace std;
 
 Foret::Foret()
 {
@@ -35,6 +36,26 @@ void Foret::afficher()
         }
         cout << endl;
     }
+}
+
+bool Foret::verifierDirection(int x, int y, string direction)
+{
+    int nX = x;
+    int nY = y;
+    if(direction == "nord")
+        nX--;
+    if(direction == "sud")
+        nX++;
+    if(direction == "est")
+        nY--;
+    if(direction == "ouest")
+        nY++;
+    if(nX < 0 || nX >= NB_LIGNES || nY < 0 || nY >= NB_COLONNES)
+        return false;
+    Case & nCase = getCase(nX,nY);
+    if(nCase.getAgent() != NULL  || nCase.getFeu() > 0)
+        return false;
+    return true;
 }
 
 Foret::~Foret()
