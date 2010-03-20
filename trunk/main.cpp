@@ -2,6 +2,8 @@
 #include "Foret.h"
 #include "Case.h"
 #include "Agent.h"
+#include <unistd.h>
+#define VFEU 1
 
 using namespace std;
 
@@ -11,11 +13,13 @@ void continuer(Foret& f);
 int main()
 {
     Foret f;
+    f.getCase(0,0).allumerFeu();
     char c;
     while(!estTermine())
     {
         f.afficher();
-        cin >> c;
+        cout << "Appuyez sur la touche entree pour continuer" << endl;
+        read(0,&c,sizeof(char));
         continuer(f);
     }
     return 0;
@@ -32,11 +36,15 @@ void continuer(Foret &f)
     {
         for(int j=0 ; j<f.NB_COLONNES ; j++)
         {
-            if(f.getCase(i,j).estFeu())
-            {
-               f.getCase(i,j).diffuserFeu();
-            }
-            Agent* agent = f.getCase(i,j).getAgent();
+            Case& c = f.getCase(i,j);
+            // Traitement feu
+            int feu = c.getFeu();
+            if(feu > 0)
+                c.bruler();
+            if(feu > VFEU)
+                c.diffuserFeu();
+            // Traitement agent
+            Agent* agent = c.getAgent();
             if(agent != NULL)
             {
                 (*agent).decouvrirEnvironnement();

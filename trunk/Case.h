@@ -16,14 +16,16 @@ class Case
 protected:
     Foret& foret;
     Agent* agent;
-	bool feu;
+	int feu;
 	int x;
 	int y;
 public:
-    Case(int aX, int aY, Foret& aForet): x(aX), y(aY), foret(aForet), agent(NULL), feu(false) {};
+    Case(int aX, int aY, Foret& aForet): x(aX), y(aY), foret(aForet), agent(NULL), feu(0) {};
 	void diffuserFeu();
-	bool estFeu();
-	void setFeu(bool estFeu);
+	int getFeu();
+	void allumerFeu();
+	void eteindreFeu();
+	void bruler();
 	int getX();
 	int getY();
 	Donnee decouvrir();

@@ -19,7 +19,7 @@ public:
     Foret();
     ~Foret();
     void afficher();
-	Case getCase(int x, int y);
+	Case& getCase(int x, int y);
 };
 
 #endif  //_FORET_H
