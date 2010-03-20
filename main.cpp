@@ -12,7 +12,7 @@
 #include "Mobile.h"
 #include <unistd.h>
 #define VFEU 1
-#define NBAGENTS 1
+#define NBAGENTS 2
 
 using namespace std;
 
@@ -26,7 +26,9 @@ int main()
     Foret f;
     f.getCase(0,0).allumerFeu();
     agents[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
+    agents[1] = new Drone("cp1",&f.getCase(4,4));
     f.getCase(2,2).setAgent(agents[0]);
+    f.getCase(4,4).setAgent(agents[1]);
     // Debut de la simulation
     char c;
     while(!estTermine())
