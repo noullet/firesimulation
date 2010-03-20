@@ -13,7 +13,7 @@
 class Capteur : public Robot
 {
 public:
-    Capteur(string name) : Robot(name) {};
+    Capteur(string name,Case* maCase) : Robot(name, maCase) {};
 };
 
 #endif  //_CAPTEUR_H

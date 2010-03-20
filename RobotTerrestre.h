@@ -8,12 +8,11 @@
 #define _ROBOTTERRESTRE_H
 
 #include "RobotMobile.h"
-#include "Donnee.h"
 
 class RobotTerrestre : public RobotMobile
 {
 public:
-    RobotTerrestre(string name) : RobotMobile(name){};
+    RobotTerrestre(string name,Case* maCase) : RobotMobile(name,maCase){};
 };
 
 #endif  //_ROBOTTERRESTRE_H

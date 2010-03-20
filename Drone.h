@@ -13,7 +13,7 @@
 class Drone : public RobotMobile
 {
 public:
-    Drone(string name) : RobotMobile(name) {};
+    Drone(string name, Case* maCase) : RobotMobile(name,maCase) {};
 };
 
 #endif  //_DRONE_H

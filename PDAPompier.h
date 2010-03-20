@@ -13,7 +13,7 @@
 class PDAPompier : public PDA
 {
 public:
-    PDAPompier(string nom) : PDA(nom){};
+    PDAPompier(string nom,Case* maCase) : PDA(nom,maCase){};
 	void seDeplacer(string direction);
 	string getDirection();
 	void decouvrirEnvironnement();

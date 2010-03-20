@@ -14,7 +14,7 @@
 class PDA : public Agent, public Mobile
 {
 public:
-    PDA(string nom) : Agent(nom){};
+    PDA(string nom, Case* maCase) : Agent(nom,maCase){};
 	void decouvrirEnvironnement();
 	void envoyerDonnee(Donnee donnee);
 	void recevoirDonnee(Donnee donnee);

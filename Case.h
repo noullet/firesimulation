@@ -29,7 +29,7 @@ public:
 	int getX();
 	int getY();
 	Donnee decouvrir();
-	Foret getForet();
+	Foret& getForet();
 	Agent* getAgent();
 	void setAgent(Agent *aAgent);
 	char getEtat();

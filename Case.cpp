@@ -88,7 +88,7 @@ Donnee Case::decouvrir()
     Donnee d(type, this->x, this->y);
 }
 
-Foret Case::getForet()
+Foret& Case::getForet()
 {
     return this->foret;
 }
