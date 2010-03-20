@@ -67,25 +67,26 @@ int Case::getY()
  return this->y;
 }
 
-Donnee Case::decouvrir()
+Donnee* Case::decouvrir()
 {
     string type;
     if(this->getFeu() > 0)
     {
         type = "feu";
     }
-    else if(typeid(*(this->agent)) == typeid(PDAVictime))
+    // LE TYPEID FAIT PLANTER L'APPLI
+    /*else if(typeid(*(this->agent)) == typeid(PDAVictime))
     {
         if(((PDAVictime*)(this->agent))->estBlesse())
         {
             type = "blesse";
         }
-    }
+    }*/
     else
     {
         type = "neant";
     }
-    Donnee d(type, this->x, this->y);
+    return new Donnee(type, this->x, this->y);
 }
 
 Foret& Case::getForet()

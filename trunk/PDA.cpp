@@ -12,12 +12,12 @@ void PDA::decouvrirEnvironnement()
 
 }
 
-void PDA::envoyerDonnee(Donnee donnee)
+void PDA::envoyerDonnee(Donnee& donnee)
 {
 
 }
 
-void PDA::recevoirDonnee(Donnee donnee)
+void PDA::recevoirDonnee(Donnee& donnee)
 {
 
 }

@@ -28,7 +28,7 @@ public:
 	void bruler();
 	int getX();
 	int getY();
-	Donnee decouvrir();
+	Donnee* decouvrir();
 	Foret& getForet();
 	Agent* getAgent();
 	void setAgent(Agent *aAgent);

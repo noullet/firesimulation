@@ -19,8 +19,8 @@ protected:
 public:
     Agent(string nom,Case* maCase) : nom(nom), maCase(maCase) {};
 	virtual void decouvrirEnvironnement() = 0;
-	virtual void envoyerDonnee(Donnee donnee) = 0;
-	virtual void recevoirDonnee(Donnee donnee) = 0;
+	virtual void envoyerDonnee(Donnee& donnee) = 0;
+	virtual void recevoirDonnee(Donnee& donnee) = 0;
 };
 
 #endif  //_AGENT_H

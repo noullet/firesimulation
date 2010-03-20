@@ -22,12 +22,12 @@ void PDAPompier::decouvrirEnvironnement()
 
 }
 
-void PDAPompier::envoyerDonnee(Donnee donnee)
+void PDAPompier::envoyerDonnee(Donnee& donnee)
 {
 
 }
 
-void PDAPompier::recevoirDonnee(Donnee donnee)
+void PDAPompier::recevoirDonnee(Donnee& donnee)
 {
 }
 

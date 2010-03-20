@@ -15,8 +15,8 @@ class Robot : public Agent
 public:
     Robot(string name,Case* maCase) : Agent(name,maCase) {};
 	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
+	void envoyerDonnee(Donnee& donnee);
+	void recevoirDonnee(Donnee& donnee);
 };
 
 #endif  //_ROBOT_H

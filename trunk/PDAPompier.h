@@ -17,8 +17,8 @@ public:
 	void seDeplacer(string direction);
 	string getDirection();
 	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee donnee);
-	void recevoirDonnee(Donnee donnee);
+	void envoyerDonnee(Donnee& donnee);
+	void recevoirDonnee(Donnee& donnee);
 
 };
 

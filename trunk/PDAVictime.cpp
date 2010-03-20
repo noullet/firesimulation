@@ -37,12 +37,12 @@ void PDAVictime::decouvrirEnvironnement()
 
 }
 
-void PDAVictime::envoyerDonnee(Donnee donnee)
+void PDAVictime::envoyerDonnee(Donnee& donnee)
 {
 
 }
 
-void PDAVictime::recevoirDonnee(Donnee donnee)
+void PDAVictime::recevoirDonnee(Donnee& donnee)
 {
 
 }
