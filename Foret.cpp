@@ -39,6 +39,15 @@ void Foret::afficher()
 
 Foret::~Foret()
 {
-
+    for(int i=0 ; i<NB_LIGNES ; i++)
+    {
+        for(int j=0 ; j<NB_COLONNES ; j++)
+        {
+            delete this->matrice[i][j];
+        }
+        delete[] this->matrice[i];
+    }
+    delete[] this->matrice;
+    cout << "La foret a ete detruite" << endl;
 }
 
