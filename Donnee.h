@@ -19,7 +19,7 @@ public:
 	Donnee(string aType, int aX, int aY): type(aType), x(aX), y(aY){};
 	void Donnee::afficher()
 	{
-        cout << "type: " << " x: " << x << " y: " << y << endl;
+        cout << type << "(" << x << ','<< y << ")" << endl;
 	}
 };
 
