@@ -17,7 +17,7 @@ protected:
 	static const int vision = 2;
 	Case *maCase;
 public:
-    Agent(string nom) : nom(nom) {};
+    Agent(string nom,Case* maCase) : nom(nom), maCase(maCase) {};
 	virtual void decouvrirEnvironnement() = 0;
 	virtual void envoyerDonnee(Donnee donnee) = 0;
 	virtual void recevoirDonnee(Donnee donnee) = 0;

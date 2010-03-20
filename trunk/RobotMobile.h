@@ -14,7 +14,7 @@
 class RobotMobile : public Robot, public Mobile
 {
 public:
-    RobotMobile(string name) : Robot(name) {};
+    RobotMobile(string name,Case* maCase) : Robot(name,maCase) {};
 	void seDeplacer(string direction);
 	string getDirection();
 };

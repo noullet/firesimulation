@@ -1052,7 +1052,7 @@
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>
-<XPD:ATTR name="#OwnedElements" type="integer">32</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">33</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="q0kc71Bt1kOaAgAHm8PISAAA">
 <XPD:ATTR name="Name" type="string">RobotTerrestre</XPD:ATTR>
 <XPD:REF name="Namespace">yJzXUACO6k2OgBwi5gIP0gAA</XPD:REF>
@@ -1084,8 +1084,9 @@
 <XPD:REF name="Views[1]">nxO/VkSV9kueNx0DIrYL+gAA</XPD:REF>
 <XPD:REF name="Views[2]">ghxWSV98gUGHy+r0rqK7JgAA</XPD:REF>
 <XPD:REF name="Views[3]">DJOKXVw6/UGI/AEAc6KYkwAA</XPD:REF>
-<XPD:ATTR name="#Generalizations" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="#Generalizations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Generalizations[0]">rrir39fH4EeTDt7TZ+dDcgAA</XPD:REF>
+<XPD:REF name="Generalizations[1]">7tKOG8wJn0KMNOEntsGApwAA</XPD:REF>
 <XPD:ATTR name="#Specializations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Specializations[0]">xkzOu7e4ak2HYGbMGWSqjgAA</XPD:REF>
 <XPD:REF name="Specializations[1]">4HdGEUE2GEiMD1tD+vO3EAAA</XPD:REF>
@@ -1452,12 +1453,13 @@
 <XPD:REF name="Views[3]">cYjH27rKfU6kbYVMz9dTIwAA</XPD:REF>
 <XPD:ATTR name="#ClientDependencies" type="integer">1</XPD:ATTR>
 <XPD:REF name="ClientDependencies[0]">OGamrLB2n02z9doLSi0A2AAA</XPD:REF>
-<XPD:ATTR name="#Specializations" type="integer">5</XPD:ATTR>
+<XPD:ATTR name="#Specializations" type="integer">6</XPD:ATTR>
 <XPD:REF name="Specializations[0]">Mg06RYA87UmxrS2cLzGLYgAA</XPD:REF>
 <XPD:REF name="Specializations[1]">wmzD+gYgFES0UWBg7F12cQAA</XPD:REF>
 <XPD:REF name="Specializations[2]">rrir39fH4EeTDt7TZ+dDcgAA</XPD:REF>
 <XPD:REF name="Specializations[3]">1AacH9d5Uk2EIA2/zVl3kQAA</XPD:REF>
 <XPD:REF name="Specializations[4]">bhWNyoITjUeTLpwQ/luqBgAA</XPD:REF>
+<XPD:REF name="Specializations[5]">7tKOG8wJn0KMNOEntsGApwAA</XPD:REF>
 <XPD:ATTR name="#Operations" type="integer">3</XPD:ATTR>
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="QbHO2JvpEkyxf85QDfiX8AAA">
 <XPD:ATTR name="Name" type="string">decouvrirEnvironnement</XPD:ATTR>
@@ -1812,6 +1814,11 @@
 <XPD:REF name="Views[2]">Yagy2eE3q0icNT3rKe0IZQAA</XPD:REF>
 <XPD:REF name="Views[3]">Py98q2oyrkCYIOBT0MY2nwAA</XPD:REF>
 </XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[32]" type="UMLGeneralization" guid="7tKOG8wJn0KMNOEntsGApwAA">
+<XPD:REF name="Namespace">yJzXUACO6k2OgBwi5gIP0gAA</XPD:REF>
+<XPD:REF name="Child">1uA9ZIMs3keYikmi9EmOqQAA</XPD:REF>
+<XPD:REF name="Parent">EP8Tg3h1/EyutsrGzu1m0AAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJ>
 </XPD:OBJ>

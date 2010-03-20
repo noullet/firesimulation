@@ -13,7 +13,7 @@
 class Robot : public Agent
 {
 public:
-    Robot(string name) : Agent(name) {};
+    Robot(string name,Case* maCase) : Agent(name,maCase) {};
 	void decouvrirEnvironnement();
 	void envoyerDonnee(Donnee donnee);
 	void recevoirDonnee(Donnee donnee);
