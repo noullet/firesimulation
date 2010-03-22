@@ -15,6 +15,7 @@
 #include "RobotTerrestre.h"
 #include "Capteur.h"
 #include <typeinfo>
+#include <unistd.h>
 
 void Case::diffuserFeu()
 {
@@ -70,23 +71,23 @@ int Case::getY()
 Donnee* Case::decouvrir()
 {
     string type;
+    type = "neant";
     if(this->getFeu() > 0)
     {
         type = "feu";
     }
-    // LE TYPEID FAIT PLANTER L'APPLI
-    /*else if(typeid(*(this->agent)) == typeid(PDAVictime))
+    else if(this->agent != NULL)
     {
-        if(((PDAVictime*)(this->agent))->estBlesse())
+        if(typeid(*agent) == typeid(PDAVictime))
         {
-            type = "blesse";
+            PDAVictime * vict = (PDAVictime*)agent;
+            if((*vict).estBlesse())
+            {
+                type = "blesse";
+            }
         }
-    }*/
-    else
-    {
-        type = "neant";
     }
-    return new Donnee(type, this->x, this->y);
+    return new Donnee(type, x, y);
 }
 
 Foret& Case::getForet()
