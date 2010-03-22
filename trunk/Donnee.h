@@ -21,6 +21,20 @@ public:
 	{
         cout << type << "(" << x << ','<< y << ")" << endl;
 	}
+	bool Donnee::equals(Donnee * d)
+	{
+	    if(d != NULL)
+        {
+            if(type != (*d).type)
+                return false;
+            if(x != (*d).x)
+                return false;
+            if(y != (*d).y)
+                return false;
+            return true;
+        }
+        return false;
+    }
 };
 
 #endif  //_DONNEE_H

@@ -13,17 +13,16 @@
 class PDAVictime : public PDA
 {
 protected:
+    Donnee * donnee;
 	bool blesse;
 	bool priseEnCharge;
 public:
-    PDAVictime(string nom,Case* maCase) : PDA(nom,maCase){};
+    PDAVictime(string nom,Case* maCase) : PDA(nom,maCase), blesse(false), donnee(NULL){};
 	bool estBlesse();
 	bool estPriseEnCharge();
 	void setPriseEnCharge(bool b);
-	void seDeplacer(string direction);
+	//void seDeplacer(string direction);
 	string getDirection();
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee& donnee);
 	void recevoirDonnee(Donnee& donnee);
 };
 

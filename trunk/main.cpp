@@ -11,8 +11,8 @@
 #include "PDAPompier.h"
 #include "Mobile.h"
 #include <unistd.h>
-#define VFEU 1
-#define NBAGENTS 2
+#define VFEU 3
+#define NBAGENTS 4
 
 using namespace std;
 
@@ -27,8 +27,12 @@ int main()
     f.getCase(0,0).allumerFeu();
     agents[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
     agents[1] = new Capteur("cp1",&f.getCase(4,4));
+    agents[2] = new PDAVictime("nico",&f.getCase(4,8));
+    agents[3] = new Capteur("cp2",&f.getCase(4,7));
     f.getCase(2,2).setAgent(agents[0]);
     f.getCase(4,4).setAgent(agents[1]);
+    f.getCase(4,8).setAgent(agents[2]);
+    f.getCase(4,7).setAgent(agents[3]);
     // Debut de la simulation
     char c;
     while(!estTermine())
@@ -69,6 +73,11 @@ void continuer(Foret &f)
         {
             RobotMobile* m = (RobotMobile*)(agent);
             (*m).seDeplacer((*m).getDirection());
+        }
+        if( typeid(PDAVictime) == typeid(*agent))
+        {
+            PDAVictime* p = (PDAVictime*)(agent);
+            (*p).seDeplacer((*p).getDirection());
         }
         (*agent).decouvrirEnvironnement();
     }

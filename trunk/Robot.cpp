@@ -53,6 +53,7 @@ void Robot::decouvrirEnvironnement()
 
 void Robot::envoyerDonnee(Donnee& donnee)
 {
+    lastDonnee = &donnee;
     Foret& f = (*maCase).getForet();
     int x = (*maCase).getX();
     int y = (*maCase).getY();
@@ -89,9 +90,12 @@ void Robot::envoyerDonnee(Donnee& donnee)
     }
 }
 
-void Robot::recevoirDonnee(Donnee& donnee)
+void Robot::recevoirDonnee(Donnee& don)
 {
     cout << "Robot " << nom << " recoit ";
-    donnee.afficher();
+    don.afficher();
+
+    if(!don.equals(lastDonnee))
+        envoyerDonnee(don);
 }
 
