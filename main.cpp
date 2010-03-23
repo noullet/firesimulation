@@ -20,6 +20,7 @@ using namespace std;
 
 bool estTermine();
 void continuer(Foret& f);
+void initialiser(Foret& f);
 Robot* robots[NBROBOTS];
 RobotMobile* robotsMobiles[NBROBOTSMOBILES];
 PDA* pdas[NBPDAS];
@@ -28,6 +29,23 @@ int main()
 {
     // Initialisation de la foret
     Foret f;
+    initialiser(f);
+    // Debut de la simulation
+    char c;
+    f.afficher();
+    while(!estTermine())
+    {
+        cout << "Appuyez sur la touche entree pour continuer" << endl;
+        read(0,&c,sizeof(char));
+        continuer(f);
+        f.afficher();
+    }
+    return 0;
+}
+
+void initialiser(Foret &f)
+{
+    // Allumage du feu
     f.getCase(0,0).allumerFeu();
     // Ajout des robots non mobiles
     robots[0] = new Capteur("cp1",&f.getCase(4,4));
@@ -42,16 +60,6 @@ int main()
     f.getCase(4,8).setAgent(pdas[0]);
     pdas[1] = new PDAPompier("beber",&f.getCase(5,4));
     f.getCase(5,4).setAgent(pdas[1]);
-    // Debut de la simulation
-    char c;
-    while(!estTermine())
-    {
-        f.afficher();
-        cout << "Appuyez sur la touche entree pour continuer" << endl;
-        read(0,&c,sizeof(char));
-        continuer(f);
-    }
-    return 0;
 }
 
 bool estTermine()
@@ -61,6 +69,32 @@ bool estTermine()
 
 void continuer(Foret &f)
 {
+    // Traitement robots
+    for(int i=0 ; i<NBROBOTS ; i++)
+    {
+        if((*robots[i]).estASimuler())
+            (*robots[i]).decouvrirEnvironnement();
+    }
+    // Traitement robots mobiles
+    for(int i=0 ; i<NBROBOTSMOBILES ; i++)
+    {
+        RobotMobile * rm = robotsMobiles[i];
+        if((*rm).estASimuler())
+        {
+            (*rm).seDeplacer((*rm).getDirection());
+            (*rm).decouvrirEnvironnement();
+        }
+    }
+    // Traitement pdas
+    for(int i=0 ; i<NBPDAS ; i++)
+    {
+        PDA * p = pdas[i];
+        if((*p).estASimuler())
+        {
+            (*p).seDeplacer((*p).getDirection());
+            (*p).decouvrirEnvironnement();
+        }
+    }
     // Traitement feu
     for(int i=0 ; i<f.NB_LIGNES ; i++)
     {
@@ -73,24 +107,5 @@ void continuer(Foret &f)
             if(feu > VFEU)
                 c.diffuserFeu();
         }
-    }
-    // Traitement robots
-    for(int i=0 ; i<NBROBOTS ; i++)
-    {
-        (*robots[i]).decouvrirEnvironnement();
-    }
-    // Traitement robots mobiles
-    for(int i=0 ; i<NBROBOTSMOBILES ; i++)
-    {
-        RobotMobile * rm = robotsMobiles[i];
-        (*rm).seDeplacer((*rm).getDirection());
-        (*rm).decouvrirEnvironnement();
-    }
-    // Traitement pdas
-    for(int i=0 ; i<NBPDAS ; i++)
-    {
-        PDA * p = pdas[i];
-        (*p).seDeplacer((*p).getDirection());
-        (*p).decouvrirEnvironnement();
     }
 }

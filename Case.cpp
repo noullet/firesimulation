@@ -56,6 +56,8 @@ void Case::eteindreFeu()
 void Case::bruler()
 {
     this->feu ++;
+    if(agent!=NULL)
+        (*agent).exclureDeSimulation();
 }
 
 int Case::getX()
