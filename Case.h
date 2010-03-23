@@ -19,8 +19,9 @@ protected:
 	int feu;
 	int x;
 	int y;
+	bool lieuSur;
 public:
-    Case(int aX, int aY, Foret& aForet): x(aX), y(aY), foret(aForet), agent(NULL), feu(0) {};
+    Case(int aX, int aY, Foret& aForet): x(aX), y(aY), foret(aForet), agent(NULL), feu(0), lieuSur(false) {};
 	void diffuserFeu();
 	int getFeu();
 	void allumerFeu();
@@ -33,6 +34,8 @@ public:
 	Agent* getAgent();
 	void setAgent(Agent *aAgent);
 	char getEtat();
+	void setLieuSur();
+	bool estLieuSur();
 };
 
 #endif  //_CASE_H

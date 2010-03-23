@@ -18,6 +18,7 @@ public:
     PDAPompier(string nom,Case* maCase) : PDA(nom,maCase), mission(NULL){};
 	string getDirection();
 	void recevoirDonnee(Donnee& donnee);
+	void seDeplacer(string direction);
 
 };
 

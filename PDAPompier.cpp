@@ -9,6 +9,25 @@
 #include "Foret.h"
 #include "Case.h"
 
+void PDAPompier::seDeplacer(string direction)
+{
+    int nX = (*maCase).getX();
+    int nY = (*maCase).getY();
+    Foret& foret = (*maCase).getForet();
+    (*maCase).setAgent(NULL);
+    if(direction == "nord")
+        nX--;
+    if(direction == "sud")
+        nX++;
+    if(direction == "est")
+        nY--;
+    if(direction == "ouest")
+        nY++;
+    Case& nCase = (foret).getCase(nX,nY);
+    nCase.setAgent(this);
+    maCase = &nCase;
+}
+
 string PDAPompier::getDirection()
 {
     string direction;
@@ -42,7 +61,7 @@ string PDAPompier::getDirection()
         {
             directionV = "ouest";
         }
-        if(dX < dY)
+        if(dX > dY)
         {
             direction = directionH;
             if(!f.verifierDirection(x,y,direction))
@@ -63,10 +82,13 @@ string PDAPompier::getDirection()
             }
         }
     }
+    return direction;
 }
 
 void PDAPompier::recevoirDonnee(Donnee& donneeRecu)
 {
+    cout << "PDAPompier " << nom << " recoit ";
+    donneeRecu.afficher();
     if(mission == NULL)
     {
         donneeRecu.traite = true;

@@ -23,6 +23,7 @@ public:
     void afficher();
 	Case& getCase(int x, int y);
 	bool verifierDirection(int x,int y,string direction);
+	Case * getLieuSur();
 };
 
 #endif  //_FORET_H

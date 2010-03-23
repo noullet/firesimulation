@@ -72,3 +72,16 @@ Foret::~Foret()
     cout << "La foret a ete detruite" << endl;
 }
 
+Case* Foret::getLieuSur()
+{
+    for(int i=0 ; i<NB_LIGNES ; i++)
+    {
+        for(int j=0 ; j<NB_COLONNES ; j++)
+        {
+            if(getCase(i,j).estLieuSur())
+                return &getCase(i,j);
+        }
+    }
+    return NULL;
+}
+

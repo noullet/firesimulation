@@ -109,7 +109,11 @@ void Case::setAgent(Agent *aAgent)
 
 char Case::getEtat()
 {
-    if(this->getFeu() > 0)
+    if(this->estLieuSur())
+    {
+        return 'H';
+    }
+    else if(this->getFeu() > 0)
     {
         return 'F';
     }
@@ -143,5 +147,15 @@ char Case::getEtat()
     {
         return '*';
     }
+}
+
+void Case::setLieuSur()
+{
+    lieuSur = true;
+}
+
+bool Case::estLieuSur()
+{
+    return lieuSur;
 }
 
