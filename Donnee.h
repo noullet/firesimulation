@@ -16,7 +16,8 @@ public:
 	string type;
 	int x;
 	int y;
-	Donnee(string aType, int aX, int aY): type(aType), x(aX), y(aY){};
+	bool traite;
+	Donnee(string aType, int aX, int aY): type(aType), x(aX), y(aY), traite(false){};
 	void Donnee::afficher()
 	{
         cout << type << "(" << x << ','<< y << ")" << endl;
