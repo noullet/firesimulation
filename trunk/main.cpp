@@ -60,6 +60,7 @@ void initialiser(Foret &f)
     f.getCase(4,8).setAgent(pdas[0]);
     pdas[1] = new PDAPompier("beber",&f.getCase(5,4));
     f.getCase(5,4).setAgent(pdas[1]);
+    f.getCase(13,13).setLieuSur();
 }
 
 bool estTermine()
