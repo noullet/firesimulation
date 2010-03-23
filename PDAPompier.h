@@ -12,12 +12,11 @@
 
 class PDAPompier : public PDA
 {
+protected :
+    Donnee * mission;
 public:
-    PDAPompier(string nom,Case* maCase) : PDA(nom,maCase){};
-	void seDeplacer(string direction);
+    PDAPompier(string nom,Case* maCase) : PDA(nom,maCase), mission(NULL){};
 	string getDirection();
-	void decouvrirEnvironnement();
-	void envoyerDonnee(Donnee& donnee);
 	void recevoirDonnee(Donnee& donnee);
 
 };
