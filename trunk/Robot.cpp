@@ -79,7 +79,7 @@ void Robot::envoyerDonnee(Donnee& donnee)
             if(!(i == x & j==y))
             {
                 Agent* agent = f.getCase(i,j).getAgent();
-                if(agent != NULL)
+                if(agent != NULL && (*agent).estASimuler())
                 {
                     cout << "Robot " << nom << " envoie ";
                     donnee.afficher();

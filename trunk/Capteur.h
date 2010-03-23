@@ -14,6 +14,13 @@ class Capteur : public Robot
 {
 public:
     Capteur(string name,Case* maCase) : Robot(name, maCase) {};
+    void exclureDeSimulation()
+	{
+        Agent::exclureDeSimulation();
+        cout << "_______________________________" << endl;
+        cout << "Capteur " << nom << " grille" << endl;
+        cout << "_______________________________" << endl;
+    }
 };
 
 #endif  //_CAPTEUR_H
