@@ -17,13 +17,16 @@ protected:
 	bool blesse;
 	bool priseEnCharge;
 public:
-    PDAVictime(string nom,Case* maCase) : PDA(nom,maCase), blesse(true), donnee(NULL){};
+    PDAVictime(string nom,Case* maCase, bool estblesse) : PDA(nom,maCase), blesse(estblesse), donnee(NULL), priseEnCharge(false){};
 	bool estBlesse();
 	bool estPriseEnCharge();
 	void setPriseEnCharge(bool b);
 	//void seDeplacer(string direction);
 	string getDirection();
 	void recevoirDonnee(Donnee& donnee);
+	Case * getCase();
+	void exclureDeSimulation();
+	void setPriseEnCharge();
 };
 
 #endif  //_PDAVICTIME_H

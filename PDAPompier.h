@@ -15,8 +15,9 @@ class PDAPompier : public PDA
 protected :
     Donnee * mission;
     PDA * secours;
+    Donnee * dtraite;
 public:
-    PDAPompier(string nom,Case* maCase) : PDA(nom,maCase), mission(NULL), secours(NULL){};
+    PDAPompier(string nom,Case* maCase) : PDA(nom,maCase), mission(NULL), secours(NULL), dtraite(NULL){};
 	string getDirection();
 	void recevoirDonnee(Donnee& donnee);
 	void seDeplacer(string direction);

@@ -9,6 +9,10 @@
 #include "Foret.h"
 #include "Case.h"
 
+
+#define RAYON_VISION 1
+#define RAYON_WIFI 2
+
 bool PDAVictime::estBlesse()
 {
     return this->blesse;
@@ -137,19 +141,35 @@ void PDAVictime::recevoirDonnee(Donnee& donneeRecu)
         else
         {
             donnee == &donneeRecu;
-            cout << "on garde la donnee" << endl;
         }
         dX2 = abs((*maCase).getX() - donneeRecu.x);
         dY2 = abs((*maCase).getY() - donneeRecu.y);
         if(dX2 < dX || dY2 < dX)
         {
             donnee = &donneeRecu;
-            cout << "on garde la donnee" << endl;
         }
     }
     if(!donneeRecu.equals(lastDonnee))
     {
         envoyerDonnee(donneeRecu);
     }
+}
+
+Case * PDAVictime::getCase()
+{
+    return maCase;
+}
+
+void PDAVictime::exclureDeSimulation()
+{
+    Agent::exclureDeSimulation();
+    cout << "_______________________________" << endl;
+    cout << "Victime " << nom << " est sauve" << endl;
+    cout << "_______________________________" << endl;
+}
+
+void PDAVictime::setPriseEnCharge()
+{
+    priseEnCharge = true;
 }
 

@@ -11,10 +11,10 @@
 #include "PDAPompier.h"
 #include "Mobile.h"
 #include <unistd.h>
-#define VFEU 3
+#define VFEU 5
 #define NBROBOTS 2
 #define NBROBOTSMOBILES 1
-#define NBPDAS 2
+#define NBPDAS 4
 
 using namespace std;
 
@@ -56,11 +56,15 @@ void initialiser(Foret &f)
     robotsMobiles[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
     f.getCase(2,2).setAgent(robotsMobiles[0]);
     // Ajout des PDAs
-    pdas[0] = new PDAVictime("nico",&f.getCase(4,8));
+    pdas[0] = new PDAVictime("nico",&f.getCase(4,8), true);
     f.getCase(4,8).setAgent(pdas[0]);
     pdas[1] = new PDAPompier("beber",&f.getCase(5,4));
     f.getCase(5,4).setAgent(pdas[1]);
     f.getCase(13,13).setLieuSur();
+    pdas[2] = new PDAVictime("jiji",&f.getCase(8,8), false);
+    f.getCase(8,8).setAgent(pdas[2]);
+    pdas[3] = new PDAPompier("alex",&f.getCase(5,6));
+    f.getCase(5,6).setAgent(pdas[3]);
 }
 
 bool estTermine()

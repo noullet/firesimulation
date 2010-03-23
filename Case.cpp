@@ -35,6 +35,7 @@ void Case::diffuserFeu()
     {
             foret.getCase(x-1,y).allumerFeu();
     }
+    feu = 1;
 }
 
 int Case::getFeu()
@@ -86,7 +87,7 @@ Donnee* Case::decouvrir()
         if(typeid(*agent) == typeid(PDAVictime))
         {
             PDAVictime * vict = (PDAVictime*)agent;
-            if((*vict).estBlesse())
+            if((*vict).estBlesse() && (!(*vict).estPriseEnCharge()))
             {
                 type = "blesse";
             }
