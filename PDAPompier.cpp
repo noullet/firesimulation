@@ -26,6 +26,25 @@ void PDAPompier::seDeplacer(string direction)
     Case& nCase = (foret).getCase(nX,nY);
     nCase.setAgent(this);
     maCase = &nCase;
+    if(secours != NULL)
+    {
+        (*secours).seDeplacer(direction);
+    }
+    if(mission != NULL)
+    {
+        int mX = (*mission).x;
+        int mY = (*mission).y;
+        int dX = abs((*maCase).getX() - mX);
+        int dY = abs((*maCase).getY() - mY);
+        if((dX == 1 && dY == 0) || (dY == 1 && dX == 0))
+        {
+            Agent * a = foret.getCase(mX, mY).getAgent();
+            if(a != NULL)
+            {
+                secours = (PDA*)a;
+            }
+        }
+    }
 }
 
 string PDAPompier::getDirection()
@@ -34,6 +53,8 @@ string PDAPompier::getDirection()
     Foret& f = (*maCase).getForet();
     int x = (*maCase).getX();
     int y = (*maCase).getY();
+    int vX;
+    int vY;
     if(mission == NULL)
     {
         direction = "rester";
@@ -41,11 +62,22 @@ string PDAPompier::getDirection()
     else
     {
         int dX, dY;
-        dX = std::abs(x - (*mission).x);
-        dY = std::abs(y - (*mission).y);
+        if(secours != NULL)
+        {
+            Case * c = f.getLieuSur();
+            vX = (*c).getX();
+            vY = (*c).getY();
+        }
+        else
+        {
+            vX = (*mission).x;
+            vY = (*mission).y;
+        }
+        dX = std::abs(x - vX);
+        dY = std::abs(y - vY);
         string directionH;
         string directionV;
-        if((*mission).x > x)
+        if(vX > x)
         {
             directionH = "sud";
         }
@@ -53,7 +85,7 @@ string PDAPompier::getDirection()
         {
             directionH = "nord";
         }
-        if((*mission).y < y)
+        if(vY < y)
         {
             directionV = "est";
         }
