@@ -17,7 +17,7 @@ protected:
 	bool blesse;
 	bool priseEnCharge;
 public:
-    PDAVictime(string nom,Case* maCase) : PDA(nom,maCase), blesse(false), donnee(NULL){};
+    PDAVictime(string nom,Case* maCase) : PDA(nom,maCase), blesse(true), donnee(NULL){};
 	bool estBlesse();
 	bool estPriseEnCharge();
 	void setPriseEnCharge(bool b);
