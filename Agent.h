@@ -23,7 +23,7 @@ public:
 	virtual void decouvrirEnvironnement() = 0;
 	virtual void envoyerDonnee(Donnee& donnee) = 0;
 	virtual void recevoirDonnee(Donnee& donnee) = 0;
-	void exclureDeSimulation()
+	virtual void exclureDeSimulation()
 	{
         aSimuler = false;
     }

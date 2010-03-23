@@ -81,8 +81,6 @@ void Robot::envoyerDonnee(Donnee& donnee)
                 Agent* agent = f.getCase(i,j).getAgent();
                 if(agent != NULL && (*agent).estASimuler())
                 {
-                    cout << "Robot " << nom << " envoie ";
-                    donnee.afficher();
                     (*agent).recevoirDonnee(donnee);
                 }
             }
@@ -92,9 +90,6 @@ void Robot::envoyerDonnee(Donnee& donnee)
 
 void Robot::recevoirDonnee(Donnee& don)
 {
-    cout << "Robot " << nom << " recoit ";
-    don.afficher();
-
     if(!don.equals(lastDonnee))
         envoyerDonnee(don);
 }
