@@ -14,7 +14,7 @@
 #define VFEU 3
 #define NBROBOTS 2
 #define NBROBOTSMOBILES 1
-#define NBPDAS 1
+#define NBPDAS 2
 
 using namespace std;
 
@@ -40,6 +40,8 @@ int main()
     // Ajout des PDAs
     pdas[0] = new PDAVictime("nico",&f.getCase(4,8));
     f.getCase(4,8).setAgent(pdas[0]);
+    pdas[1] = new PDAPompier("beber",&f.getCase(5,4));
+    f.getCase(5,4).setAgent(pdas[1]);
     // Debut de la simulation
     char c;
     while(!estTermine())

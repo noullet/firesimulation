@@ -67,8 +67,11 @@ string PDAPompier::getDirection()
 
 void PDAPompier::recevoirDonnee(Donnee& donneeRecu)
 {
-
-
+    if(mission == NULL)
+    {
+        donneeRecu.traite = true;
+        mission = &donneeRecu;
+    }
     if(!donneeRecu.equals(lastDonnee))
     {
         envoyerDonnee(donneeRecu);
