@@ -12,27 +12,34 @@
 #include "Mobile.h"
 #include <unistd.h>
 #define VFEU 3
-#define NBAGENTS 4
+#define NBROBOTS 2
+#define NBROBOTSMOBILES 1
+#define NBPDAS 1
 
 using namespace std;
 
 bool estTermine();
 void continuer(Foret& f);
-Agent* agents[NBAGENTS];
+Robot* robots[NBROBOTS];
+RobotMobile* robotsMobiles[NBROBOTSMOBILES];
+PDA* pdas[NBPDAS];
 
 int main()
 {
     // Initialisation de la foret
     Foret f;
     f.getCase(0,0).allumerFeu();
-    agents[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
-    agents[1] = new Capteur("cp1",&f.getCase(4,4));
-    agents[2] = new PDAVictime("nico",&f.getCase(4,8));
-    agents[3] = new Capteur("cp2",&f.getCase(4,7));
-    f.getCase(2,2).setAgent(agents[0]);
-    f.getCase(4,4).setAgent(agents[1]);
-    f.getCase(4,8).setAgent(agents[2]);
-    f.getCase(4,7).setAgent(agents[3]);
+    // Ajout des robots non mobiles
+    robots[0] = new Capteur("cp1",&f.getCase(4,4));
+    f.getCase(4,4).setAgent(robots[0]);
+    robots[1] = new Capteur("cp2",&f.getCase(4,7));
+    f.getCase(4,7).setAgent(robots[1]);
+    // Ajout des robots mobiles
+    robotsMobiles[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
+    f.getCase(2,2).setAgent(robotsMobiles[0]);
+    // Ajout des PDAs
+    pdas[0] = new PDAVictime("nico",&f.getCase(4,8));
+    f.getCase(4,8).setAgent(pdas[0]);
     // Debut de la simulation
     char c;
     while(!estTermine())
@@ -65,20 +72,23 @@ void continuer(Foret &f)
                 c.diffuserFeu();
         }
     }
-    // Traitement agents
-    for(int i=0 ; i<NBAGENTS ; i++)
+    // Traitement robots
+    for(int i=0 ; i<NBROBOTS ; i++)
     {
-        Agent* agent = agents[i];
-        if( typeid(RobotTerrestre) == typeid(*agent) || typeid(*agent) == typeid(Drone))
-        {
-            RobotMobile* m = (RobotMobile*)(agent);
-            (*m).seDeplacer((*m).getDirection());
-        }
-        if( typeid(PDAVictime) == typeid(*agent))
-        {
-            PDAVictime* p = (PDAVictime*)(agent);
-            (*p).seDeplacer((*p).getDirection());
-        }
-        (*agent).decouvrirEnvironnement();
+        (*robots[i]).decouvrirEnvironnement();
+    }
+    // Traitement robots mobiles
+    for(int i=0 ; i<NBROBOTSMOBILES ; i++)
+    {
+        RobotMobile * rm = robotsMobiles[i];
+        (*rm).seDeplacer((*rm).getDirection());
+        (*rm).decouvrirEnvironnement();
+    }
+    // Traitement pdas
+    for(int i=0 ; i<NBPDAS ; i++)
+    {
+        PDA * p = pdas[i];
+        (*p).seDeplacer((*p).getDirection());
+        (*p).decouvrirEnvironnement();
     }
 }
