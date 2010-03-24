@@ -48,7 +48,6 @@ void PDAPompier::seDeplacer(string direction)
         if(direction != "rester")
             (*secours).seDeplacer(directionVict);
         caseVict = (*((PDAVictime*)secours)).getCase();
-        cout << (*caseVict).estLieuSur() << endl;
         if((*caseVict).estLieuSur())
         {
             (*secours).exclureDeSimulation();
@@ -58,6 +57,7 @@ void PDAPompier::seDeplacer(string direction)
     }
     if(mission != NULL)
     {
+        cout << "Pompier " << nom << " a la mission : " << (*mission).type << "<" << (*mission).x << "," << (*mission).y << ">" << endl;
         if((*mission).type == "feu")
         {
             int mX = (*mission).x;
@@ -66,9 +66,8 @@ void PDAPompier::seDeplacer(string direction)
             int dY = abs((*maCase).getY() - mY);
             if(dX <= 2 && dY <= 2)
             {
-                cout << "Pompier eteint le feu <" << mX << "," << mY << ">" << endl;
+                cout << "Pompier " << nom << " eteint le feu <" << mX << "," << mY << ">" << endl;
                 foret.getCase(mX, mY).eteindreFeu();
-                cout << foret.getCase(mX, mY).getFeu() << endl;
                 mission = NULL;
             }
         }
@@ -189,7 +188,6 @@ string PDAPompier::getDirection()
 
 void PDAPompier::recevoirDonnee(Donnee& donneeRecu)
 {
-    bool dejaTraite = false;
     if(mission == NULL)
     {
         if(donneeRecu.traite == false)
@@ -221,10 +219,12 @@ void PDAPompier::recevoirDonnee(Donnee& donneeRecu)
                 dY = abs(dY - (*mission).y);
                 dX2 = abs((*maCase).getX() - donneeRecu.x);
                 dY2 = abs((*maCase).getY() - donneeRecu.y);
-                if(dX2 < dX || dY2 < dX)
+                if(dX2 < dX || dY2 < dY)
                 {
                     (*mission).traite = false;
+                    donneeRecu.traite = true;
                     mission = &donneeRecu;
+
                 }
             }
         }
@@ -253,7 +253,7 @@ bool PDAPompier::missionDejaTraite(Donnee& donneeRecu)
     {
         if(dtraite[i] != NULL)
         {
-            if(donneeRecu.equals(dtraite[i]) && (*dtraite[i]).traite)
+            if(donneeRecu.equals(dtraite[i]) && ((*dtraite[i]).traite))
             {
                 dejaTraite = true;
             }
