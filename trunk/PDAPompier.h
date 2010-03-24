@@ -21,6 +21,7 @@ public:
 	string getDirection();
 	void recevoirDonnee(Donnee& donnee);
 	void seDeplacer(string direction);
+	void exclureDeSimulation();
 
 };
 

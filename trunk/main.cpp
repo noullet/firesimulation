@@ -11,7 +11,7 @@
 #include "PDAPompier.h"
 #include "Mobile.h"
 #include <unistd.h>
-#define VFEU 5
+#define VFEU 2
 #define NBROBOTS 2
 #define NBROBOTSMOBILES 1
 #define NBPDAS 4

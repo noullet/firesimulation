@@ -72,3 +72,14 @@ string RobotMobile::getDirection()
 	}
 	return direction;
 }
+
+void RobotMobile::exclureDeSimulation()
+{
+    if(this->aSimuler)
+    {
+    cout << "_______________________________" << endl;
+    cout << "Robot " << nom << " est brule" << endl;
+    cout << "_______________________________" << endl;
+    }
+    Agent::exclureDeSimulation();
+}
