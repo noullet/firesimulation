@@ -162,10 +162,22 @@ Case * PDAVictime::getCase()
 
 void PDAVictime::exclureDeSimulation()
 {
+    if(this->aSimuler)
+    {
+        if((*maCase).estLieuSur())
+        {
+            cout << "_______________________________" << endl;
+            cout << "Victime " << nom << " est sauve" << endl;
+            cout << "_______________________________" << endl;
+        }
+        else
+        {
+            cout << "_______________________________" << endl;
+            cout << "Victime " << nom << " est brule" << endl;
+            cout << "_______________________________" << endl;
+        }
+    }
     Agent::exclureDeSimulation();
-    cout << "_______________________________" << endl;
-    cout << "Victime " << nom << " est sauve" << endl;
-    cout << "_______________________________" << endl;
 }
 
 void PDAVictime::setPriseEnCharge()

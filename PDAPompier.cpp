@@ -205,3 +205,14 @@ void PDAPompier::recevoirDonnee(Donnee& donneeRecu)
     }
 }
 
+void PDAPompier::exclureDeSimulation()
+{
+    if(this->aSimuler)
+    {
+    cout << "_______________________________" << endl;
+    cout << "Pompier " << nom << " est brule" << endl;
+    cout << "_______________________________" << endl;
+    }
+    Agent::exclureDeSimulation();
+}
+
