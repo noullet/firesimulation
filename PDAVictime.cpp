@@ -126,8 +126,6 @@ string PDAVictime::getDirection()
 
 void PDAVictime::recevoirDonnee(Donnee& donneeRecu)
 {
-    cout << "PDAVictime " << nom << " recoit ";
-    donneeRecu.afficher();
     if(donneeRecu.type == "feu")
     {
         int dX, dY, dX2, dY2;

@@ -19,21 +19,29 @@
 
 void Case::diffuserFeu()
 {
-    if(y+1 < foret.NB_COLONNES)
+    int i = rand();
+    i = i%2;
+    if(i == 0)
     {
-            foret.getCase(x,y+1).allumerFeu();
+        if(y+1 < foret.NB_COLONNES)
+        {
+                foret.getCase(x,y+1).allumerFeu();
+        }
+        if(y-1 >= 0)
+        {
+                foret.getCase(x,y-1).allumerFeu();
+        }
     }
-    if(y-1 >= 0)
+    else
     {
-            foret.getCase(x,y-1).allumerFeu();
-    }
-    if(x+1 < foret.NB_COLONNES)
-    {
-            foret.getCase(x+1,y).allumerFeu();
-    }
-    if(x-1 >= 0)
-    {
-            foret.getCase(x-1,y).allumerFeu();
+        if(x+1 < foret.NB_COLONNES)
+        {
+                foret.getCase(x+1,y).allumerFeu();
+        }
+        if(x-1 >= 0)
+        {
+                foret.getCase(x-1,y).allumerFeu();
+        }
     }
     feu = 1;
 }

@@ -9,6 +9,9 @@
 #include "Foret.h"
 #include "Case.h"
 #include "PDAVictime.h"
+#include "PDA.h"
+
+
 
 void PDAPompier::seDeplacer(string direction)
 {
@@ -27,9 +30,7 @@ void PDAPompier::seDeplacer(string direction)
         nY--;
     if(direction == "ouest")
         nY++;
-    Case& nCase = (foret).getCase(nX,nY);
-    nCase.setAgent(this);
-    maCase = &nCase;
+
     if(secours != NULL)
     {
         string directionVict;
@@ -44,7 +45,8 @@ void PDAPompier::seDeplacer(string direction)
             directionVict = ("est");
         else
             directionVict = ("ouest");
-        (*secours).seDeplacer(directionVict);
+        if(direction != "rester")
+            (*secours).seDeplacer(directionVict);
         caseVict = (*((PDAVictime*)secours)).getCase();
         cout << (*caseVict).estLieuSur() << endl;
         if((*caseVict).estLieuSur())
@@ -54,6 +56,26 @@ void PDAPompier::seDeplacer(string direction)
             mission = NULL;
         }
     }
+    if(mission != NULL)
+    {
+        if((*mission).type == "feu")
+        {
+            int mX = (*mission).x;
+            int mY = (*mission).y;
+            int dX = abs((*maCase).getX() - mX);
+            int dY = abs((*maCase).getY() - mY);
+            if(dX <= 2 && dY <= 2)
+            {
+                cout << "Pompier eteint le feu <" << mX << "," << mY << ">" << endl;
+                foret.getCase(mX, mY).eteindreFeu();
+                cout << foret.getCase(mX, mY).getFeu() << endl;
+                mission = NULL;
+            }
+        }
+    }
+    Case& nCase = (foret).getCase(nX,nY);
+    nCase.setAgent(this);
+    maCase = &nCase;
     if(mission != NULL)
     {
         if((*mission).type == "blesse")
@@ -71,20 +93,6 @@ void PDAPompier::seDeplacer(string direction)
                     PDAVictime* v = (PDAVictime*)a;
                     (*v).setPriseEnCharge();
                 }
-            }
-        }
-        if((*mission).type == "feu")
-        {
-            int mX = (*mission).x;
-            int mY = (*mission).y;
-            int dX = abs((*maCase).getX() - mX);
-            int dY = abs((*maCase).getY() - mY);
-            if(dX <= 2 && dY <= 2)
-            {
-                cout << "Pompier eteint le feu <" << mX << "," << mY << ">" << endl;
-                foret.getCase(mX, mY).eteindreFeu();
-                cout << foret.getCase(mX, mY).getFeu() << endl;
-                mission = NULL;
             }
         }
     }
@@ -148,54 +156,76 @@ string PDAPompier::getDirection()
                     direction = "rester";
             }
         }
+        if(mission != NULL && (*mission).type == "feu")
+        {
+            if((x - vX) < 1 && (x-vX) >= 0 && (y - vY) < 2 && (y - vY) >= 1)
+            {
+                direction = "sud";
+                    if(!f.verifierDirection(x,y,direction))
+                    direction = "rester";
+            }
+            else if((vX - x) < 1 && (vX - x) >= 0 && (vY - y) < 2 && (vY - y) >= 1)
+            {
+                direction = "nord";
+                    if(!f.verifierDirection(x,y,direction))
+                    direction = "rester";
+            }
+            else if((vY - y) < 1 && (vY - y) >= 0 && (vX - x) < 2 && (vX - x) >= 1)
+            {
+                direction = "ouest";
+                    if(!f.verifierDirection(x,y,direction))
+                    direction = "rester";
+            }
+            else if((y - vY) < 1 && (y - vY) >= 0 && (x - vX) < 2 && (x-vX) >= 1)
+            {
+                direction = "est";
+                    if(!f.verifierDirection(x,y,direction))
+                    direction = "rester";
+            }
+        }
     }
     return direction;
 }
 
 void PDAPompier::recevoirDonnee(Donnee& donneeRecu)
 {
-    cout << "PDAPompier " << nom << " recoit ";
-    donneeRecu.afficher();
+    bool dejaTraite = false;
     if(mission == NULL)
     {
         if(donneeRecu.traite == false)
         {
-            if(dtraite != NULL)
-            {
-                if(!donneeRecu.equals(dtraite))
-                {
-                    donneeRecu.traite = true;
-                    donneeRecu.traite = "nom";
-                    mission = &donneeRecu;
-                }
-            }
-            else
+            if(!missionDejaTraite(donneeRecu))
             {
                 donneeRecu.traite = true;
-                donneeRecu.traite = "nom";
+                donneeRecu.pompier = nom;
                 mission = &donneeRecu;
             }
         }
         else
         {
-                dtraite = &donneeRecu;
+            ajouterDonneeTraite(donneeRecu);
         }
     }
     else
     {
-        if(donneeRecu.type == "feu" && (*mission).type == "feu")
+        if(donneeRecu.traite == true)
+            ajouterDonneeTraite(donneeRecu);
+        if(!missionDejaTraite(donneeRecu))
         {
-            int dX, dY, dX2, dY2;
-            dX = (*maCase).getX();
-            dY = (*maCase).getY();
-            dX = abs(dX - (*mission).x);
-            dY = abs(dY - (*mission).y);
-            dX2 = abs((*maCase).getX() - donneeRecu.x);
-            dY2 = abs((*maCase).getY() - donneeRecu.y);
-            if(dX2 < dX || dY2 < dX)
+            if(donneeRecu.type == "feu" && (*mission).type == "feu")
             {
-                (*mission).traite = false;
-                mission = &donneeRecu;
+                int dX, dY, dX2, dY2;
+                dX = (*maCase).getX();
+                dY = (*maCase).getY();
+                dX = abs(dX - (*mission).x);
+                dY = abs(dY - (*mission).y);
+                dX2 = abs((*maCase).getX() - donneeRecu.x);
+                dY2 = abs((*maCase).getY() - donneeRecu.y);
+                if(dX2 < dX || dY2 < dX)
+                {
+                    (*mission).traite = false;
+                    mission = &donneeRecu;
+                }
             }
         }
     }
@@ -214,5 +244,51 @@ void PDAPompier::exclureDeSimulation()
     cout << "_______________________________" << endl;
     }
     Agent::exclureDeSimulation();
+}
+
+bool PDAPompier::missionDejaTraite(Donnee& donneeRecu)
+{
+    bool dejaTraite = false;
+    for(int i = 0 ; i < nbPompier ; i++)
+    {
+        if(dtraite[i] != NULL)
+        {
+            if(donneeRecu.equals(dtraite[i]) && (*dtraite[i]).traite)
+            {
+                dejaTraite = true;
+            }
+        }
+    }
+    return dejaTraite;
+}
+
+void PDAPompier::ajouterDonneeTraite(Donnee& donneeRecu)
+{
+    if(donneeRecu.pompier != nom)
+    {
+        int indice = -1;
+        for(int i = 0 ; i < nbPompier ; i++)
+        {
+            if(dtraite[i] != NULL)
+                if((*dtraite[i]).pompier == donneeRecu.pompier)
+                    indice = i;
+        }
+        if(indice == -1)
+        {
+            bool enregistre = false;
+            for(int i = 0 ; i < nbPompier ; i++)
+            {
+                if(dtraite[i] == NULL && !enregistre)
+                {
+                    dtraite[i] = &donneeRecu;
+                    enregistre = true;
+                }
+            }
+        }
+        else
+        {
+            dtraite[indice] = &donneeRecu;
+        }
+    }
 }
 
