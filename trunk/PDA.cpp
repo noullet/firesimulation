@@ -8,7 +8,7 @@
 #include "Donnee.h"
 #include "Case.h"
 
-#define RAYON_VISION 1
+#define RAYON_VISION 2
 #define RAYON_WIFI 2
 using namespace std;
 void PDA::decouvrirEnvironnement()
@@ -73,8 +73,6 @@ void PDA::envoyerDonnee(Donnee& donnee)
                 Agent* agent = f.getCase(i,j).getAgent();
                 if(agent != NULL && (*agent).estASimuler())
                 {
-                    cout << "PDA " << nom << " envoie ";
-                    donnee.afficher();
                     (*agent).recevoirDonnee(donnee);
                 }
             }

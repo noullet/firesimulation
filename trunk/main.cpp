@@ -13,8 +13,9 @@
 #include <unistd.h>
 #define VFEU 2
 #define NBROBOTS 2
-#define NBROBOTSMOBILES 1
-#define NBPDAS 4
+#define NBROBOTSMOBILES 2
+#define NBPDAS 5
+#define NBPOMPIER 3
 
 using namespace std;
 
@@ -47,24 +48,30 @@ void initialiser(Foret &f)
 {
     // Allumage du feu
     f.getCase(0,0).allumerFeu();
+    f.getCase(1,0).allumerFeu();
+    f.getCase(2,0).allumerFeu();
     // Ajout des robots non mobiles
     robots[0] = new Capteur("cp1",&f.getCase(4,4));
     f.getCase(4,4).setAgent(robots[0]);
     robots[1] = new Capteur("cp2",&f.getCase(4,7));
     f.getCase(4,7).setAgent(robots[1]);
     // Ajout des robots mobiles
-    robotsMobiles[0] = new RobotTerrestre("rt1",&f.getCase(2,2));
-    f.getCase(2,2).setAgent(robotsMobiles[0]);
+    robotsMobiles[0] = new RobotTerrestre("rt1",&f.getCase(1,1));
+    f.getCase(1,1).setAgent(robotsMobiles[0]);
+    robotsMobiles[1] = new Drone("dr1",&f.getCase(7,8));
+    f.getCase(7,8).setAgent(robotsMobiles[1]);
     // Ajout des PDAs
     pdas[0] = new PDAVictime("nico",&f.getCase(4,8), true);
     f.getCase(4,8).setAgent(pdas[0]);
-    pdas[1] = new PDAPompier("beber",&f.getCase(5,4));
-    f.getCase(5,4).setAgent(pdas[1]);
+    pdas[1] = new PDAPompier("beber",&f.getCase(3,4), NBPOMPIER);
+    f.getCase(3,4).setAgent(pdas[1]);
     f.getCase(13,13).setLieuSur();
     pdas[2] = new PDAVictime("jiji",&f.getCase(8,8), false);
     f.getCase(8,8).setAgent(pdas[2]);
-    pdas[3] = new PDAPompier("alex",&f.getCase(5,6));
-    f.getCase(5,6).setAgent(pdas[3]);
+    pdas[3] = new PDAPompier("alex",&f.getCase(5,4), NBPOMPIER);
+    f.getCase(5,4).setAgent(pdas[3]);
+    pdas[4] = new PDAPompier("manech",&f.getCase(5,6), NBPOMPIER);
+    f.getCase(5,6).setAgent(pdas[4]);
 }
 
 bool estTermine()
@@ -74,6 +81,7 @@ bool estTermine()
 
 void continuer(Foret &f)
 {
+
     // Traitement robots
     for(int i=0 ; i<NBROBOTS ; i++)
     {
