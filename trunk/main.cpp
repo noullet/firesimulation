@@ -19,7 +19,7 @@
 
 using namespace std;
 
-bool estTermine();
+bool estTermine(Foret& f);
 void continuer(Foret& f);
 void initialiser(Foret& f);
 Robot* robots[NBROBOTS];
@@ -34,13 +34,18 @@ int main()
     // Debut de la simulation
     char c;
     f.afficher();
-    while(!estTermine())
+    while(!estTermine(f))
     {
         cout << "Appuyez sur la touche entree pour continuer" << endl;
         read(0,&c,sizeof(char));
         continuer(f);
         f.afficher();
     }
+    cout << "\n___________________________________________" << endl;
+    cout << "La simulation s'est terminée avec succes : " << endl;
+    cout << "Tous les blessés sont sauves et le feu est eteint" << endl;
+    cout << "___________________________________________" << endl;
+
     return 0;
 }
 
@@ -74,9 +79,31 @@ void initialiser(Foret &f)
     f.getCase(5,6).setAgent(pdas[4]);
 }
 
-bool estTermine()
+bool estTermine(Foret & f)
 {
-    return false;
+    // Verification feu
+    for(int i=0 ; i<f.NB_LIGNES ; i++)
+    {
+        for(int j=0 ; j<f.NB_COLONNES ; j++)
+        {
+            Case& c = f.getCase(i,j);
+            int feu = c.getFeu();
+            if(feu > 0)
+                return false;
+        }
+    }
+    // Verification blessés
+    for(int i=0 ; i<NBPDAS ; i++)
+    {
+        PDA * p = pdas[i];
+        if( typeid(*p) == typeid(PDAVictime) )
+        {
+            PDAVictime * pv = dynamic_cast<PDAVictime*>(p);
+            if( (*pv).estBlesse() && (*pv).estASimuler() )
+                return false;
+        }
+    }
+    return true;
 }
 
 void continuer(Foret &f)
